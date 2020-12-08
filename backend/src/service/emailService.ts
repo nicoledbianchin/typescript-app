@@ -9,8 +9,13 @@ interface IMailMassage {
     attachment?: string[];
 }
 
+interface IMessageDTO {
+    to: IMailTo;
+    message: IMailMassage;
+}
+
 class EmailService {
-    sendMail(to: IMailTo, message: IMailMassage) {
+    sendMail({ to, message }: IMessageDTO) {
         console.log(`Email enviado para ${to.name}: ${message.subject}`);
     }
 }
